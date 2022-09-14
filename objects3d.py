@@ -117,15 +117,13 @@ class Box(object):
                     continue
                 if t >= 0:
                     p = ray.get_point(t)
-                    # The local coordinates of the intersection point
-                    # TODO: Store this in RayIntersection.misc_data?
-                    lp = self.pos - p
+                    q = p - self.pos
                     ex, ey, ez = (
                         self.extents[0], self.extents[1], self.extents[2]
                     )
-                    if (-ex - 0.0001 < lp.dot(self.axes[0]) < ex + 0.0001 and
-                        -ey - 0.0001 < lp.dot(self.axes[1]) < ey + 0.0001 and
-                        -ez - 0.0001 < lp.dot(self.axes[2]) < ez + 0.0001):
+                    if (-ex - 0.0001 < q.dot(self.axes[0]) < ex + 0.0001 and
+                        -ey - 0.0001 < q.dot(self.axes[1]) < ey + 0.0001 and
+                        -ez - 0.0001 < q.dot(self.axes[2]) < ez + 0.0001):
                         hits.append(RayIntersection(ray, self, p, normal, t))
         return hits
 
