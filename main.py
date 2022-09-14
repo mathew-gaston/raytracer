@@ -169,13 +169,13 @@ def main():
         Plane(
             matls['blue'], Vector3(0.0, 4.0, 0.0), Vector3(0.1, 1.0, 0.0)
         ),
-        Sphere(matls['red'], Vector3(2, 8, 5), 7),
+        Sphere(matls['red'], Vector3(2.0, 8.0, 5.0), 7.0),
         box := Box(
             matls['yellow'],
             Vector3(15.0, 12.0, -5.0),
             Vector3(9.0, 5.0, 2.0)
         ),
-        TriangleMesh(matls['purple'], Vector3(-10, 22, 0), 'tri.obj')
+        TriangleMesh(matls['purple'], Vector3(-10.0, 22.0, 0.0), 'tri.obj')
     ]
 
     box.rotate_z(radians(45))
